@@ -3,7 +3,6 @@ package com.programm.onepiece.game;
 import com.programm.onepiece.engine.OnePieceEngine;
 
 import java.awt.*;
-import java.util.function.Consumer;
 
 public class Game extends OnePieceEngine {
 

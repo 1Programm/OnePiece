@@ -10,9 +10,8 @@ public class OnePieceWindow extends WindowAdapter {
     private final JFrame frame;
     private final Canvas canvas;
     private final OnePieceEngine engine;
-    private boolean closeRequested;
 
-    public OnePieceWindow(String title, int width, int height, OnePieceEngine engine){
+    OnePieceWindow(String title, int width, int height, OnePieceEngine engine){
         this.engine = engine;
 
         this.frame = new JFrame(title);
@@ -30,13 +29,13 @@ public class OnePieceWindow extends WindowAdapter {
         this.frame.setLocationRelativeTo(null);
     }
 
-    public void init(OPKeyboard keyboard, OPMouse mouse) {
+    void init(OPKeyboard keyboard, OPMouse mouse) {
         this.canvas.addKeyListener(keyboard);
         this.canvas.addMouseListener(mouse);
         this.canvas.addMouseMotionListener(mouse);
     }
 
-    public void draw(){
+    void draw(){
         BufferStrategy bs = canvas.getBufferStrategy();
 
         if(bs == null){
@@ -53,19 +52,15 @@ public class OnePieceWindow extends WindowAdapter {
 
     @Override
     public void windowClosing(WindowEvent e) {
-        this.closeRequested = true;
+        engine.stop();
     }
 
-    public void show(){
+    void show(){
         this.frame.setVisible(true);
     }
 
-    public void close(){
+    void close(){
         this.frame.dispose();
-    }
-
-    public boolean isCloseRequested() {
-        return closeRequested;
     }
 
     public int width() {

@@ -59,7 +59,7 @@ public abstract class OnePieceEngine {
         int updates = 0;
         int frames = 0;
 
-        while(running && !window.isCloseRequested()){
+        while(running){
             long now = System.nanoTime();
             delta += (now - lastTime) * ns;
             lastTime = now;
