@@ -5,8 +5,6 @@ import com.programm.onepiece.engine.loggin.ILogger;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SpaceInvadersGame extends OnePieceEngine {
 
@@ -14,7 +12,7 @@ public class SpaceInvadersGame extends OnePieceEngine {
         new SpaceInvadersGame("Space Invaders", 600, 500, 30, ILogger.LEVEL_INFO).start();
     }
 
-    private final List<GameObject> objects = new ArrayList<>();
+    private final ObjectHandler objects = new ObjectHandler();
 
     private Player player;
 
@@ -24,27 +22,22 @@ public class SpaceInvadersGame extends OnePieceEngine {
 
     @Override
     protected void init() {
-        player = new Player(window.width() / 2f, window.height() - 100, keyboard, window);
+        player = new Player(window.width() / 2f, window.height() - 100, keyboard, window, objects);
         objects.add(player);
+
+        int swarmWidth = 5;
+        int swarmHeight = 3;
+
+        for(int x=0;x<swarmWidth;x++) {
+            for(int y=0;y<swarmHeight;y++) {
+                objects.add(new Enemy(10 + x * (Enemy.WIDTH + 10), 10 + y * (Enemy.HEIGHT + 10), window));
+            }
+        }
     }
 
     @Override
     protected void update() {
-        if(keyboard.isKeyPressed(KeyEvent.VK_SPACE)) {
-            Bullet bullet = new Bullet(player.x, player.y, -4, window);
-            objects.add(bullet);
-        }
-
-
-        for (int i = 0; i < objects.size(); i++) {
-            if(objects.get(i).dead) {
-                objects.remove(i);
-                i--;
-                continue;
-            }
-            objects.get(i).update();
-        }
-
+        objects.update();
     }
 
     @Override
@@ -52,8 +45,6 @@ public class SpaceInvadersGame extends OnePieceEngine {
         g.setColor(Color.white);
         g.fillRect(0, 0, window.width(), window.height());
 
-        for (int i = 0; i < objects.size(); i++) {
-            objects.get(i).render(g);
-        }
+        objects.render(g);
     }
 }

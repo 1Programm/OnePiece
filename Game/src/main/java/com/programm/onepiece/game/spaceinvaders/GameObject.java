@@ -2,7 +2,7 @@ package com.programm.onepiece.game.spaceinvaders;
 
 import java.awt.*;
 
-public abstract class GameObject {
+public abstract class GameObject implements IUpdatable {
 
     protected float x;
 
@@ -24,8 +24,7 @@ public abstract class GameObject {
         this.color = color;
     }
 
-    public abstract void update();
-
+    @Override
     public void render(Graphics g) {
         g.setColor(color);
         g.fillRect((int)x, (int)y, (int)width, (int)height);
