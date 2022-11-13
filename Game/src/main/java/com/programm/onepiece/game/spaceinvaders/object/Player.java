@@ -1,7 +1,8 @@
-package com.programm.onepiece.game.spaceinvaders;
+package com.programm.onepiece.game.spaceinvaders.object;
 
 import com.programm.onepiece.engine.OPKeyboard;
 import com.programm.onepiece.engine.OnePieceWindow;
+import com.programm.onepiece.game.spaceinvaders.ObjectHandler;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

@@ -1,4 +1,4 @@
-package com.programm.onepiece.game.spaceinvaders;
+package com.programm.onepiece.game.spaceinvaders.object;
 
 import com.programm.onepiece.engine.OnePieceWindow;
 

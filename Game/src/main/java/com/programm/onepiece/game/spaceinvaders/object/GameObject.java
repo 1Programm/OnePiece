@@ -1,4 +1,6 @@
-package com.programm.onepiece.game.spaceinvaders;
+package com.programm.onepiece.game.spaceinvaders.object;
+
+import com.programm.onepiece.game.spaceinvaders.IUpdatable;
 
 import java.awt.*;
 
@@ -14,7 +16,7 @@ public abstract class GameObject implements IUpdatable {
 
     protected final Color color;
 
-    protected boolean dead = false;
+    public boolean dead = false;
 
     public GameObject(float x, float y, float width, float height, Color color) {
         this.x = x;

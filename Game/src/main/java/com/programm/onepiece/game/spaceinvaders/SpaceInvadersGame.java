@@ -2,9 +2,10 @@ package com.programm.onepiece.game.spaceinvaders;
 
 import com.programm.onepiece.engine.OnePieceEngine;
 import com.programm.onepiece.engine.loggin.ILogger;
+import com.programm.onepiece.game.spaceinvaders.object.Enemy;
+import com.programm.onepiece.game.spaceinvaders.object.Player;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
 
 public class SpaceInvadersGame extends OnePieceEngine {
 

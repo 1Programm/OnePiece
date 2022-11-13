@@ -1,5 +1,7 @@
 package com.programm.onepiece.game.spaceinvaders;
 
+import com.programm.onepiece.game.spaceinvaders.object.GameObject;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
