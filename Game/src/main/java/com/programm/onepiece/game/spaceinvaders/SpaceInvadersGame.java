@@ -15,6 +15,8 @@ public class SpaceInvadersGame extends OnePieceEngine {
 
     private final ObjectHandler objects = new ObjectHandler();
 
+    private SwarmHandler swarmHandler;
+
     private Player player;
 
     public SpaceInvadersGame(String title, int width, int height, int fps, int logLevel) {
@@ -25,20 +27,14 @@ public class SpaceInvadersGame extends OnePieceEngine {
     protected void init() {
         player = new Player(window.width() / 2f, window.height() - 100, keyboard, window, objects);
         objects.add(player);
-
-        int swarmWidth = 5;
-        int swarmHeight = 3;
-
-        for(int x=0;x<swarmWidth;x++) {
-            for(int y=0;y<swarmHeight;y++) {
-                objects.add(new Enemy(10 + x * (Enemy.WIDTH + 10), 10 + y * (Enemy.HEIGHT + 10), window));
-            }
-        }
+        swarmHandler = new SwarmHandler(5, 3, window, objects);
+        swarmHandler.init();
     }
 
     @Override
     protected void update() {
         objects.update();
+        swarmHandler.update();
     }
 
     @Override
@@ -47,5 +43,6 @@ public class SpaceInvadersGame extends OnePieceEngine {
         g.fillRect(0, 0, window.width(), window.height());
 
         objects.render(g);
+        swarmHandler.render(g);
     }
 }

@@ -23,4 +23,6 @@ public class Bullet extends GameObject {
         }
         y += vy;
     }
+
+
 }

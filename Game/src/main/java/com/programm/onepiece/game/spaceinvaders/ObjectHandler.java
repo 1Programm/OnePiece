@@ -35,4 +35,12 @@ public class ObjectHandler implements IUpdatable {
         this.objects.add(obj);
     }
 
+    public int size() {
+        return objects.size();
+    }
+
+    public GameObject get(int i) {
+        return objects.get(i);
+    }
+
 }

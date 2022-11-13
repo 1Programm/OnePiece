@@ -6,13 +6,13 @@ import java.awt.*;
 
 public abstract class GameObject implements IUpdatable {
 
-    protected float x;
+    public float x;
 
-    protected float y;
+    public float y;
 
-    protected float width;
+    public float width;
 
-    protected float height;
+    public float height;
 
     protected final Color color;
 
